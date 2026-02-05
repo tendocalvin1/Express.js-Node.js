@@ -1,4 +1,4 @@
-
+// 🔹 Example 2 — Seeing the Request Hit Your Server
 import http from 'http'
 
 const PORT = process.env.PORT || 3000

@@ -1,3 +1,5 @@
+// 🔹 Example 1 — The Smallest Possible Server
+
 import http from 'http'
 
 const PORT = process.env.PORT || 8000
