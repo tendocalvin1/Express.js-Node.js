@@ -1,10 +1,14 @@
 import express from 'express';
+import logger from './Middleware/logger.js';
+import protect from './Middleware/route-level-middleware.js';
+import protection from './Middleware/protection.js';
 
 const app = express();
 const PORT = process.env.PORT || 8000
 
 // This replaces manual JSON parsing
 app.use(express.json())
+app.use(logger)
 
 app.get('/', (req, res)=>{
     res.end("Welcome")
@@ -17,6 +21,10 @@ app.get('/jobs', (req,res)=>{
     ]
 
     res.json(jobs)
+})
+
+app.get('/jobs', protect, (req, res)=>{
+    res.json([{title: 'Footballer'}])
 })
 
 
