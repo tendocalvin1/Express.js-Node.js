@@ -11,18 +11,19 @@ import http from 'http';
 const PORT = process.env.PORT
 
 const server = http.createServer((req, res)=>{
-    res.writeHead(200, {'content-type': 'text/plain'})
-    res.end("Check your terminal")
-    console.log("I need to make 2 full stack projects this month otherwise am dead")
-
-    res.writeHead(200, {'content-type': 'application/json'})
-    res.end("Check your terminal")
-    console.log("I have to be the best SWE possible so that I can land a remote role")
-
-
-    res.writeHead(200, {'content-type': 'text/html'})
-    res.end("Check your terminal")
-    console.log("My name is Tendo Calvin and I have to be disciplined and consistent throughout 2026.")
+    if(req.url === '/text'){
+        res.writeHead(200, {'content-type': 'text/plain'})
+        res.end('This is plain text')
+    } else if (req.url === '/json'){
+        res.writeHead(200, {'content-type': 'application/json'})
+        res.end(JSON.stringify({name: 'Tendo Calvin', goal:'Software Engineer'}))
+    }else if(req.url === '/html'){
+        res.writeHead(200, {'content-type': 'text/html'})
+        res.end('<h2>This is HTML</h2>')
+    } else{
+        res.writeHead(404, {'content-type': 'text/html'})
+        res.end('<h2>Page not found</h2>')
+    }
 })
 
 server.listen(PORT, ()=>{
