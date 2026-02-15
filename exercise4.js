@@ -9,10 +9,14 @@ import http from 'http';
 
 const PORT = process.env.PORT
 
-const server = http.createServer((req, res)=>{
-     res.writeHead(200, {'content-type':'application/json'})
-     res.end(JSON.stringify({message: "JSON response"}))
-})
+const responseData = {
+     method: req.method,
+     url: req.url,
+     headers: req.headers
+}
+
+     res.writeHead(200, {'content-type': 'application/json'})
+     res.end(JSON.stringify(responseData))
 
 server.listen(PORT, ()=>{
      console.log(`Server is running on port ${PORT}`)
