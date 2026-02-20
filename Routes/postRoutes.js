@@ -5,6 +5,7 @@ import { getSinglePost, getPosts, createPost } from '../Controllers/postControll
 const router = express.Router();
 
 router.get('/', getPosts)
+router.get('/:id', getSinglePost);
 router.post('/', createPost)
 
 

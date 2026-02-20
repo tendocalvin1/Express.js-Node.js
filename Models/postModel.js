@@ -1,6 +1,7 @@
 
 export let posts = [
-    {id:1, title:'first post', content: 'Hello world'}
+    {id:1, title:'first post', content: 'Hello world'},
+    {id:2, title: 'second post', content: 'Software Engineer'}
 ]
 
 

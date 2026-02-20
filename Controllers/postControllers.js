@@ -9,8 +9,7 @@ export const getPosts =(req, res) =>{
 export const getSinglePost = (req, res)=>{
     const post = findPostById(parseInt(req.params.id))
 
-
-
+    
 if (!posts){
     return res.status(404).json({message: 'Post not found'})
 
